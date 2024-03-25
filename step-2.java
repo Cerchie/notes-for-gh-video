@@ -65,8 +65,9 @@ public class GitHubPrRatio {
     static final String INPUT_TOPIC = "github-pull_requests";
     static final String OUTPUT_TOPIC = "github-pull_requests";
 
+      //first the topology
     public Topology topology(Properties properties) {
-
+//valuemapper last
         final ValueMapper<JsonNode, GitHubPRInfo> valueMapper = jsonNode -> {
             JsonNode prStateVal = jsonNode.findValue("state");
             JsonNode prCreatedAtVal = jsonNode.findValue("created_at");
@@ -79,6 +80,8 @@ public class GitHubPrRatio {
 
             return new GitHubPRInfo(state, createdAt, closedAt, prNumber);
         };
+
+          //then the builder
         final StreamsBuilder builder = new StreamsBuilder();
 
         builder.stream(INPUT_TOPIC, Consumed.with(Serdes.String(), jsonNodeSerde))
