@@ -55,6 +55,7 @@ import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 
 public class GitHubPrRatio {
+    // start with public class, then fill in variables in screen recording
     private static final Logger LOG = LoggerFactory.getLogger(GitHubPrRatio.class);
     static final Serde<GitHubPRStateCounter> prStateCounterSerde = StreamsSerde.serdeFor(GitHubPRStateCounter.class);
     final Serializer<JsonNode> jsonSerializer = new JsonSerializer();
