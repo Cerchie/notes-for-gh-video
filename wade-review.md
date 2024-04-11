@@ -363,7 +363,7 @@ Create a new Streams instance with our topology. What’s a topology? Hold on a 
         }));
 }
 
-Then we’ll set up a countdown latch so it waits for other threads before it starts…
+Then we’ll set up a countdown latch so the thread in main waits for other threads before it starts. We pass in `1` to the latch because it's waiting on one thread. We'll await this latch after we start the stream. 
 
 
 ```java
