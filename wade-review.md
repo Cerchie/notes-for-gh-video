@@ -453,7 +453,7 @@ Ok, so,  what’s a topology? It’s  a definition of the computational logic we
 }
 ```
 
-First, I’ll instantiate the builder, then I’ll create the stream. We specify the input topic in the Consumed.with method, as well as the deserializer we’ll use for the key and value.
+First, I’ll instantiate the builder, then I’ll create the stream. We specify the input topic in the `builder.stream params`, as well as the deserializer we’ll use for the key and value in consuming the records.
 
 
 ```java
