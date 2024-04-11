@@ -127,13 +127,7 @@ We’ll get the value of the record and start a chain of logic.
                         if (stateCounter == null) {
                             stateCounter = new GitHubPRStateCounter();
                         }
-                        if (prInfo.state().equalsIgnoreCase("open")) {
-                            stateCounter.setOpen(stateCounter.getOpen() + 1);
-                        } else {
-                            stateCounter.setClosed(stateCounter.getClosed() + 1);
-                        }
-                        kvStore.put(STORE_KEY, stateCounter);
-                    }
+ }
 ```
 
 If there’s no state and the state counter is null, we instantiate a new state counter. 
