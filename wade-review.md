@@ -121,7 +121,7 @@ static class MyProcessorSupplier implements ProcessorSupplier<String, GitHubPRIn
 We’ll get the value of the record and start a chain of logic. 
 
 ```java
-SHOULD I ZOOM IN HERE I WONDER
+#note: zoom in here, but leave `prInfo = record.value()` line on the screen
                     if(!prInfo.state().equals(NO_STATE)) {
                         GitHubPRStateCounter stateCounter = kvStore.get(STORE_KEY);
                         if (stateCounter == null) {
