@@ -482,8 +482,6 @@ First, I’ll instantiate the builder, then I’ll create the stream. We specify
                 .peek((key, value) -> LOG.info("Incoming key[{}] value[{}]", key, value))
                 .mapValues(valueMapper)
                 .process(new MyProcessorSupplier())
-                .peek((key, value) -> LOG.info("Outgoing value key[{}] value[{}]", key, value))
-                .to(OUTPUT_TOPIC, Produced.with(Serdes.String(), prStateCounterSerde));
 
         return builder.build(properties);
     }
@@ -505,8 +503,6 @@ Next, we’ll need to process the data, using the processer we have already defi
                 .process(new MyProcessorSupplier())
                 .peek((key, value) -> LOG.info("Outgoing value key[{}] value[{}]", key, value))
                 .to(OUTPUT_TOPIC, Produced.with(Serdes.String(), prStateCounterSerde));
-
-        return builder.build(properties);
     }
 
 
@@ -515,6 +511,25 @@ Next, we’ll need to process the data, using the processer we have already defi
 
  I’ll chain on another peek method to log if our data is processed successfully, then we’ll send it to the output topic with the .to method.  
 
+ ```java
+    public Topology topology(Properties properties) {
+
+        final StreamsBuilder builder = new StreamsBuilder();
+
+        builder.stream(INPUT_TOPIC, Consumed.with(Serdes.String(), jsonNodeSerde))
+                .peek((key, value) -> LOG.info("Incoming key[{}] value[{}]", key, value))
+                .mapValues(valueMapper)
+                .process(new MyProcessorSupplier())
+                .peek((key, value) -> LOG.info("Outgoing value key[{}] value[{}]", key, value))
+                .to(OUTPUT_TOPIC, Produced.with(Serdes.String(), prStateCounterSerde));
+
+        return builder.build(properties);
+    }
+
+
+}
+```
+Then we'll return the result of the `.build` method, which returns the Topology that represents the specified processing logic.
  
 ```java
     public Topology topology(Properties properties) {
