@@ -275,7 +275,7 @@ And some strings – my storename, a variable called `NO_STATE` to handle the ca
 }
 ```
 
-Let’s wrap all this up in our main method. 
+Let’s wrap all this up in our main method, which is inside the `GitHubPRRatio` umbrella class. 
 
 ```java
     public static Properties loadEnvProperties(String fileName) throws IOException {
