@@ -60,7 +60,7 @@ static class MyProcessorSupplier implements ProcessorSupplier<String, GitHubPRIn
 
 ```
 
-Then, I’ll initialize it with our state store. The init method schedules a punctuation to fire every second, printing the ratio in the store. 
+Then, I’ll initialize it with our state store. The init method schedules a punctuation, or a scheduled periodic action on the stream, to fire every second, printing the ratio in the store. You might also wonder about the `ProcessorContext`. This context instance includes metadata of the currently processed record and, in addition, allows us to schedule the punctuation. 
 
 ```java
 static class MyProcessorSupplier implements ProcessorSupplier<String, GitHubPRInfo, String, GitHubPRStateCounter> { 
