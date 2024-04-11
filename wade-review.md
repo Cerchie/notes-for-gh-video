@@ -245,7 +245,9 @@ public class GitHubPrRatio {
     final Serde<JsonNode> jsonNodeSerde = Serdes.serdeFrom(jsonSerializer, jsonDeserializer);
 }
 ```
-Variables working towards creating my custom serde,
+
+I'm going to need to create some custom serialization and deserialization logic in a moment, so let's create variables to help with that. This "serde" is going to help us interact with the data, which is sent over the network as bytes in Kafka.
+
 ```java
 public class GitHubPrRatio {
     // start with public class, then fill in variables in screen recording
