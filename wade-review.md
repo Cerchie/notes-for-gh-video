@@ -152,7 +152,7 @@ If there’s no state and the state counter is null, we instantiate a new state 
                     }
 ```
 
-If the pr state is either open or closed, we increment the open or closed counts. 
+The PR state as gleaned from GitHub can be one of two values: open, or closed. Here we increment the open or closed counts. 
 
 ```java
                     if(!prInfo.state().equals(NO_STATE)) {
