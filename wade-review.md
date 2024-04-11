@@ -225,7 +225,7 @@ public class GitHubPrRatio {
 }
 ```
 
- Next, I’m going to create a GitHubPRRatio class to hold this processing… process!. I’ll need some variables:
+ Next, I’m going to create a GitHubPRRatio class to hold this processing… process! as well as the function that loads our properties, the processor instance, the store builder, and a value mapper to help us get our data into the right shape. I’ll need some variables:
 
 
 ```java
