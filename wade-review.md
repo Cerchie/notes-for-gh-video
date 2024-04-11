@@ -1,7 +1,7 @@
 ## Getting started with Kafka Streams: The Processing Process
 
 
-Now, I'll pivot to building a Kafka Streams application that processes the 'github-pull_requests' events, creating an up-to-date ratio of open/closed pull requests.
+Now, I'll pivot to building a Kafka Streams application that processes the 'github-pull_requests' records, creating an up-to-date ratio of open/closed pull requests.
 
 If you want to follow along with this part, check out the GitHub repo in the links below. I’m going to focus on the domain logic given our timeframe, so if you really want to dive in, I suggest consulting the codebase. 
 
@@ -89,7 +89,7 @@ static class MyProcessorSupplier implements ProcessorSupplier<String, GitHubPRIn
 }
 ```
 
-Next, I’ll write the process method to  take in the events, mark them as open or closed, increment the count, and stash them in the state store.
+Next, I’ll write the process method to take in the records, mark them as open or closed, increment the count, and stash them in the state store.
 
 ```java
 static class MyProcessorSupplier implements ProcessorSupplier<String, GitHubPRInfo, String, GitHubPRStateCounter> { 
