@@ -470,7 +470,7 @@ First, I’ll instantiate the builder, then I’ll create the stream. We specify
 }
 ```
 
- I’ll add a peek method so we can log what’s coming in, then chain on a valueMapper, which we’ll define in a second. 
+ I’ll add a peek method so we can log what’s coming in, then then chain on a valueMapper which will be used to convert from the raw JSON to our GitHubPrInfo object, which we’ll define in a second. 
 
  
 ```java
