@@ -22,7 +22,7 @@ static class MyProcessorSupplier implements ProcessorSupplier<String, GitHubPRIn
 }
 ```
 
-Our store key will be named 'state_counter'. 
+Now, in Kafka Streams, any processing that involves state will store that state in a, well, a "store", which is held by RocksDB. The key by which we'll retrieve this state later will be named 'state_counter', because we'll be counting the open and closed state of pull requests to get the current ratio. 
 
 ---
 
