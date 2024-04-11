@@ -263,7 +263,7 @@ public class GitHubPrRatio {
 
 }
 ```
-And some strings – my storename, a no state variable, and some input and output topic names. 
+And some strings – my storename, a variable called `NO_STATE` to handle the case when the state is `null` later, and some input and output topic names. 
 
 ## The main method
 
